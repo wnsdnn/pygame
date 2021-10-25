@@ -18,16 +18,16 @@ clock = pygame.time.Clock()
 ###################################################################
 
 # 1. 사용자 세임 초기화 (배경화면, 게임 이미지, 좌표, 속도, 폰트 등)
-background = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/background.png")
+background = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/background.jpg")
 
-character = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/character.png")
+character = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/dog.jpg")
 character_size = character.get_rect().size
 character_width = character_size[0]
 character_height = character_size[1]
 character_x_pos = (screen_width / 2) - (character_width /2)
 character_y_pos = screen_height - character_height
 
-enemy = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/enemy.png")
+enemy = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/ddong.jpg")
 enemy_size = enemy.get_rect().size
 enemy_width = enemy_size[0]
 enemy_height = enemy_size[1]
