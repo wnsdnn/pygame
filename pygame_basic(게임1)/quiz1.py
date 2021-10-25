@@ -1,3 +1,4 @@
+import os
 import pygame
 import random
 ###################################################################
@@ -18,26 +19,33 @@ clock = pygame.time.Clock()
 ###################################################################
 
 # 1. 사용자 세임 초기화 (배경화면, 게임 이미지, 좌표, 속도, 폰트 등)
-background = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/background.jpg")
+current_path = os.path.dirname(__file__)  # 현재 파일의 위치
+print(current_path)
 
-character = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/dog.jpg")
+background = pygame.image.load("%s/background.jpg" % (current_path))
+
+character = pygame.image.load("%s/dog.jpg" % (current_path))
 character_size = character.get_rect().size
 character_width = character_size[0]
 character_height = character_size[1]
 character_x_pos = (screen_width / 2) - (character_width /2)
 character_y_pos = screen_height - character_height
 
-enemy = pygame.image.load("C:/Users/User/Desktop/pygame/pygame_basic/ddong.jpg")
+enemy = pygame.image.load("%s/ddong.jpg" % (current_path))
 enemy_size = enemy.get_rect().size
 enemy_width = enemy_size[0]
 enemy_height = enemy_size[1]
 enemy_x_pos = random.randint(0, screen_width - character_width)
 enemy_y_pos = 0
 
+game_font = pygame.font.Font(None, 40)
+
 
 to_x = 0
 character_speed = .3
-enemy_speed = .25
+enemy_speed = .5
+
+score = 0
 
 
 running = True 
@@ -68,6 +76,7 @@ while running:
     if enemy_y_pos > screen_height:
         enemy_y_pos = 0
         enemy_x_pos = random.randint(0, screen_width - character_width)
+        score += 12
 
 
     if character_x_pos < 0:
@@ -84,8 +93,10 @@ while running:
     enemy_rect.left = enemy_x_pos
     enemy_rect.top = enemy_y_pos
 
+
     if character_rect.colliderect(enemy_rect):
         print("게임오버")
+        print("당신의 총 점수는: %s점 입니다." % (score))
         running = False
 
     # 5. 화면에 그리기
@@ -93,6 +104,9 @@ while running:
     screen.blit(background, (0, 0))
     screen.blit(character, (character_x_pos, character_y_pos))
     screen.blit(enemy, (enemy_x_pos, enemy_y_pos))
+
+    total_score = game_font.render(str(score), True, (0, 0, 0))
+    screen.blit(total_score, (10, 10))
 
     pygame.display.update()
 
