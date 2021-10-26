@@ -26,7 +26,7 @@ current_path = os.path.dirname(__file__)  # 현재 파일의 위치 반환
 image_path = os.path.join(current_path, "images")  # images 폴더 위치 반환
 
 # 배경 만들기
-background = pygame.image.load(os.path.join(image_path, "background.png"))
+background = pygame.image.load(os.path.join(image_path, "background.jpg"))
 
 # 스테이지 만들기
 stage = pygame.image.load(os.path.join(image_path, "stage.png"))
@@ -34,7 +34,7 @@ stage_size = stage.get_rect().size
 stage_height = stage_size[1]  # 스테이지의 높이 위에 캐릭터를 두기 위해 사용
 
 # 캐릭터 만들기
-character = pygame.image.load(os.path.join(image_path, "character.png"))
+character = pygame.image.load(os.path.join(image_path, "character.jpg"))
 character_size = character.get_rect().size 
 character_width = character_size[0]
 character_height = character_size[1]
@@ -229,6 +229,21 @@ while running:
                         "init_spd_y": ball_speed_y[ball_img_idx + 1]
                     })
                 break
+        else:  # 계속 게임을 진행
+            continue    # 안쪽 for문 조건이 맞지 않으면 continue. 바깥 for문 계속 수행
+        break  # 안쪽 for문에서 break를 만나면 여기로 진입 가능. 2중 for문 한번에 탈출
+
+    # for 바깥조건:
+    #     바깥동작
+    #     for 안쪽조건:
+    #         안쪽동작
+    #         if 충돌하면:
+    #             break
+    #     else:
+    #         continue
+    #     break
+
+
     # 충돌된 공 or 무기 앲애기
     if ball_to_remove > -1:
         del balls[ball_to_remove]
