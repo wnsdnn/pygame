@@ -17,10 +17,10 @@ start_ticks = pygame.time.get_ticks()
 game_result = "Game Over"
 
 # 배경 이미지 정의
-background = pygame.image.load("C:\\Users\\User\\Desktop\\pikachyu_baegu\\image\\background.jpg")
+background = pygame.image.load("C:\\Users\\User\\Desktop\\pygame\\pikachyu_baegu\\image\\background.jpg")
 
 # 밑바닥 이미지 정의
-stage = pygame.image.load("C:\\Users\\User\\Desktop\\pikachyu_baegu\\image\\stage.jpg")
+stage = pygame.image.load("C:\\Users\\User\\Desktop\\pygame\\pikachyu_baegu\\image\\stage.jpg")
 stage_size = stage.get_rect().size
 stage_width = stage_size[0]
 stage_height = stage_size[1]
@@ -28,7 +28,7 @@ stage_x_pos = 0
 stage_y_pos = screen_height - stage_height
 
 # 캐릭터 이미지 정의
-character = pygame.image.load("C:\\Users\\User\\Desktop\\pikachyu_baegu\\image\\character.png")
+character = pygame.image.load("C:\\Users\\User\\Desktop\\pygame\\pikachyu_baegu\\image\\character.png")
 character_size = character.get_rect().size
 character_width = character_size[0]
 character_height = character_size[1]
@@ -38,7 +38,7 @@ character_to_x = 0
 character_speed = 10
 
 # 공 이미지 정의
-ball = pygame.image.load("C:\\Users\\User\\Desktop\\pikachyu_baegu\\image\\ball.png")
+ball = pygame.image.load("C:\\Users\\User\\Desktop\\pygame\\pikachyu_baegu\\image\\ball.png")
 ball_size = ball.get_rect().size
 ball_width = ball_size[0]
 ball_height = ball_size[1]
